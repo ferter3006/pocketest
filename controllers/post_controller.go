@@ -29,8 +29,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 
 func Version(e *core.RequestEvent) error {
 	return e.JSON(http.StatusOK, map[string]string{
-		"message":     "Hello, World!",
-		"version":     "08-feb-2026",
+		"message":     "Testing deploy alive",
+		"version":     "15-mar-2026",
 		"last update": "new Deploy action!",
 	})
 }

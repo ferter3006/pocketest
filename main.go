@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"new-test/controllers"
 	"os"
 
@@ -18,11 +17,7 @@ func main() {
 		// serves static files from the provided public dir (if exists)
 		se.Router.GET("/{path...}", apis.Static(os.DirFS("./pb_public"), false))
 
-		// test hi world endpoint
-		se.Router.GET("/hi", func(e *core.RequestEvent) error {
-			return e.JSON(http.StatusOK, map[string]bool{"success": true})
-		})
-
+		// Info version endpoint
 		se.Router.GET("/version", controllers.Version)
 
 		// Redsys config
