@@ -5,8 +5,6 @@ import (
 	"net/http"
 	"new-test/models"
 	"time"
-
-	"github.com/pocketbase/pocketbase/core"
 )
 
 // Simulación de almacenamiento en memoria
@@ -25,12 +23,4 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	posts = append(posts, post)
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(post)
-}
-
-func Version(e *core.RequestEvent) error {
-	return e.JSON(http.StatusOK, map[string]string{
-		"message":     "Testing deploy alive",
-		"version":     "15-mar-2026",
-		"last update": "new Deploy action!",
-	})
 }
